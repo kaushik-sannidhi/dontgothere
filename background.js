@@ -1,13 +1,23 @@
-chrome.webRequest.onBeforeRequest.addListener(
-    function (details) {
-        const { url } = details;
-        chrome.storage.sync.get(['baseURL', 'redirectURL'], function (result) {
-            const { baseURL, redirectURL } = result;
-            if (baseURL && redirectURL && url.includes(baseURL)) {
-                return { redirectUrl: url.replace(baseURL, redirectURL) };
-            }
-        });
-    },
-    { urls: ['<all_urls>'] },
-    ['blocking']
-);
+chrome.runtime.onInstalled.addListener(function() {
+    chrome.storage.sync.get(['baseURL', 'redirectURL'], function (result) {
+        const { baseURL, redirectURL } = result;
+        if (baseURL && redirectURL) {
+            const rule = {
+                id: 'redirectRule',
+                priority: 1,
+                condition: {
+                    urlFilter: { hostSuffix: baseURL },
+                },
+                action: {
+                    type: 'redirect',
+                    redirect: { regexSubstitution: redirectURL },
+                },
+            };
+
+            chrome.declarativeNetRequest.updateDynamicRules({
+                removeRuleIds: ['redirectRule'],
+                addRules: [rule],
+            });
+        }
+    });
+});
