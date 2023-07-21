@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Stay on Task",
+  "version": "1.0",
+  "description": "Redirects specified websites to desired URLs for enhanced productivity.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+      "16": "dontgothere16.png",
+      "48": "dontgothere64.png",
+      "128": "dontgothere128.png"
+  }
+}
