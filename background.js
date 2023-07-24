@@ -1,40 +1,18 @@
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.sync.get(['baseURL', 'redirectURL', 'ruleID'], function (
-    result
-  ) {
-    const { baseURL, redirectURL, ruleID } = result;
-    if (baseURL && redirectURL) {
-      const rule = {
-        id: ruleID || 'redirectRule',
-        priority: 1,
-        condition: {
-          urlFilter: { hostSuffix: baseURL },
-        },
-        action: {
-          type: 'redirect',
-          redirect: { regexSubstitution: redirectURL },
-        },
-      };
-
-      if (ruleID) {
-        chrome.declarativeNetRequest.updateDynamicRules(
-          { removeRuleIds: [ruleID] },
-          function () {
-            addRuleAndSaveID(rule);
-          }
-        );
-      } else {
-        addRuleAndSaveID(rule);
-      }
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    if (changeInfo.status === 'complete') {
+        const tabUrl = tab.url;
+        const iconUrl = chrome.runtime.getURL('dontgothere16.png');
+        chrome.storage.sync.get(['baseURL', 'redirectURL'], function (result) {
+            const { baseURL, redirectURL } = result;
+            if (baseURL && redirectURL) {
+                chrome.notifications.create({
+                    type: 'basic',
+                    iconUrl: iconUrl,
+                    title: 'Tab Updated',
+                    message: baseURL +" --- "+ redirectURL,
+                });
+            }
+        });
     }
-  });
 });
 
-function addRuleAndSaveID(rule) {
-  chrome.declarativeNetRequest.updateDynamicRules({ addRules: [rule] }, function () {
-    if (!rule.id) {
-      const newRuleID = rule.id;
-      chrome.storage.sync.set({ ruleID: newRuleID });
-    }
-  });
-}
