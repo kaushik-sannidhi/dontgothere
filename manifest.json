@@ -3,7 +3,7 @@
   "name": "Stay on Task",
   "version": "1.0",
   "description": "Redirects specified websites to desired URLs for enhanced productivity.",
-  "permissions": ["scripting", "storage"],
+  "permissions": ["scripting", "storage", "declarativeNetRequest","tabs","notifications"],
   "background": {
     "service_worker": "background.js"
   },
