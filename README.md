@@ -19,7 +19,7 @@ Dont Go There is a powerful productivity browser extension that helps you stay f
 ## How to install:
 *The Browser extension is not yet avaliable at the Chrome Web Store. Process below must be followed inorder to use the google extension*
 
-### 1. Enter your browser's extension page and turn on develouper mode(accessed at the top right in most browsers)
+### 1. Enter your browser's extension page and turn on developer mode(accessed at the top right in most browsers)
 ### 2. Download all of the files in this github repository (all of the files must be in a seperate folder exclusively for this extension)
 ### 3. Select Load Unpacked
 ### 4. Navigate to the folder that consists of the files from this github repository and select it
