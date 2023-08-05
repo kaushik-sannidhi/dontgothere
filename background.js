@@ -4,15 +4,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const iconUrl = chrome.runtime.getURL('dontgothere16.png');
         chrome.storage.sync.get(['baseURL', 'redirectURL'], function (result) {
             const { baseURL, redirectURL } = result;
-            if (baseURL && redirectURL) {
+            if (baseURL && redirectURL && tabUrl.includes(baseURL)) {
+                chrome.tabs.remove(tabId, function () {
+                    chrome.tabs.create({ url: redirectURL });
+                });
                 chrome.notifications.create({
                     type: 'basic',
                     iconUrl: iconUrl,
                     title: 'Tab Updated',
-                    message: baseURL +" --- "+ redirectURL,
+                    message: baseURL + " --- " + redirectURL,
                 });
             }
         });
     }
 });
-
