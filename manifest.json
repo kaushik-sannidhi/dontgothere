@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Stay on Task",
+  "name": "Dont Go There",
   "version": "1.0",
   "description": "Redirects specified websites to desired URLs for enhanced productivity.",
   "permissions": ["scripting", "storage", "declarativeNetRequest","tabs","notifications"],
