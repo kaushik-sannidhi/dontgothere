@@ -17,7 +17,7 @@ Dont Go There is a powerful productivity browser extension that helps you stay f
 ### Boost your productivity, eliminate distractions, and take control of your online experience with Redirector. Stay on task and achieve your goals with this essential productivity extension for Google Chrome!"
 
 ## How to install:
-*The Browser extension is not yet avaliable at the Chrome Web STore. Process below must be followed inorder to use the google extension*
+*The Browser extension is not yet avaliable at the Chrome Web Store. Process below must be followed inorder to use the google extension*
 
 ### 1. Enter your browser's extension page and turn on develouper mode(accessed at the top right in most browsers)
 ### 2. Download all of the files in this github repository (all of the files must be in a seperate folder exclusively for this extension)
