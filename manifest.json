@@ -3,7 +3,7 @@
   "name": "Dont Go There",
   "version": "1.0",
   "description": "Redirects specified websites to desired URLs for enhanced productivity.",
-  "permissions": ["scripting", "storage", "declarativeNetRequest","tabs","notifications"],
+  "permissions": ["scripting", "storage", "tabs",  "notifications"],
   "background": {
     "service_worker": "background.js"
   },
@@ -11,8 +11,8 @@
     "default_popup": "popup.html"
   },
   "icons": {
-      "16": "dontgothere16.png",
-      "48": "dontgothere64.png",
-      "128": "dontgothere128.png"
+    "16": "dontgothere16.png",
+    "48": "dontgothere64.png",
+    "128": "dontgothere128.png"
   }
 }
