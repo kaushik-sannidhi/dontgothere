@@ -1,4 +1,4 @@
-### Dont Go There
+# Dont Go There
 
 Dont Go There is a powerful productivity browser extension that helps you stay focused and on-task while browsing the web. With Redirector, you can effortlessly redirect specific websites to your desired URLs, enabling you to eliminate distractions and boost your productivity.
 
