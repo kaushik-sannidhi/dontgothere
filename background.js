@@ -13,7 +13,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                         type: 'basic',
                         iconUrl: iconUrl,
                         title: 'Tab Updated',
-                        message: rule.baseURL + " --- " + rule.redirectURL,
+                        message: rule.baseURL + " ---> " + rule.redirectURL,
                     });
                     break; 
                 }
